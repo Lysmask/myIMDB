@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Genre extends Model
+class Person extends Model
 {
-    function movie() {
+    public function movie() {
       return hasMany('App\Movie');
     }
-
-
-} // End of class
+}
