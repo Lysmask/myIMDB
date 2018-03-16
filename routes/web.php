@@ -16,4 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/users', 'UserController@index');
+<<<<<<< HEAD
 Route::get('/users/{user}', 'UserController@show');
+=======
+>>>>>>> 614d8379ba1e7c474a4eb96def02379783ec9cc6
