@@ -24,7 +24,16 @@
         <br><br>
       <input type="number" placeholder="Runtime (minutes)" name="runtime">
         <br><br>
-      <input type=""
+        <select name="director">
+          @foreach ($people as $person)
+            <option value="{{ $person->id}}"> {{$person->name}} </option>
+          @endforeach
+          </select>
+        <select name="actors[]" multiple>
+          @foreach ($people as $person)
+            <option value="{{$person->id}}"> {{$person->name}} </option>
+          @endforeach
+          </select>
   <input type="submit" name="moviecreator" value="Add movie">
 </form>
 </div>

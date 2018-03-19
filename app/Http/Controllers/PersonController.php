@@ -25,8 +25,8 @@ class PersonController extends Controller
     public function create()
     {
       return view ('Person/create');
-      // $person = new Person;
-      // $person->name = $request->firstname . " " . $request->lastname;
+      $person = new Person;
+      $person->name = $request->firstname . " " . $request->lastname;
     }
 
     /**

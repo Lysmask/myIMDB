@@ -8,7 +8,7 @@ class Person extends Model
 {
   public $timestamps = false;
 
-    public function movie() {
-      return hasMany('App\Movie');
+    public function movies() {
+      return $this->belongsToMany('App\Movie')->withPivot('role');
     }
 }

@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
-    function person() {
-      return hasMany('App\Person');
-    }
+  public $timestamps = false;
+
+  function actors() {
+    return $this->belongsToMany('App\Person')->withPivot('role', 2);
+  }
+
+  function directors() {
+    return $this->belongsToMany('App\Person')->withPivot('role', 1);
+  }
 
 
 } // End of class

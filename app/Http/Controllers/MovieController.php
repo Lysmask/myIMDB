@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Movie;
 use Illuminate\Http\Request;
+use App\Person;
 
 class MovieController extends Controller
 {
@@ -25,9 +26,8 @@ class MovieController extends Controller
      */
     public function create()
     {
-        $actor = Person::where('Role' '=' '1')->get();
-        $director = Person::where('Role' '=' '2')->get();
-        return view ('Movie/create', []);
+        $people = Person::get();
+        return view ('Movie/create', ['people' => $people]);
     }
 
     /**
@@ -38,7 +38,20 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          // $this->validate($request, [
+          //   'title' => 'required',
+          //   'description' => 'required',
+          //   'linktoposter' => 'required',
+          //   'runtime' => 'required',
+          // ]);
+
+            $movie = new Movie;
+            $movie->title = $request->input('title');
+            $movie->description = $request->input('description');
+            $movie->runtime = $request->input('runtime');
+            $movie->save();
+            return redirect()->route('movie.index');
+
     }
 
     /**

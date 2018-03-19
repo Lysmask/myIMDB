@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatemoviepeopleTable extends Migration
+class CreatemoviepersonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatemoviepeopleTable extends Migration
      */
     public function up()
     {
-        Schema::create('moviepeople', function (Blueprint $table) {
+        Schema::create('movie_person', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('movie_id')->unsigned();
             $table->integer('person_id')->unsigned();
@@ -28,6 +28,6 @@ class CreatemoviepeopleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('moviepeople');
+        Schema::dropIfExists('movie_person');
     }
 }
