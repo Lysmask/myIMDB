@@ -25,7 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+      $user = User::find(1);
+        return view ('User/create', ['user' => $user]);
     }
 
     /**
