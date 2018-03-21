@@ -25,13 +25,13 @@ Route::get('/users/{user}', 'UserController@show');
 
 //Movies
 Route::get('/movies', 'MovieController@index')->name('movie.index');
-Route::get('/movies/create', 'MovieController@create');
+Route::get('/movies/create', 'MovieController@create')->name('movie.create');
 Route::post('/movies', 'MovieController@store')->name('movie.store');
 Route::get('/movies/{movie}', 'MovieController@show')->name('movies.show');
 
 //Person
 Route::get('/people', 'PersonController@index')->name('people.index');
-Route::get('/people/create', 'PersonController@create');
+Route::get('/people/create', 'PersonController@create')->name('people.create');
 Route::post('/people', 'PersonController@store')->name('people.store');
 Route::get('/people/{person}', 'PersonController@show');
 

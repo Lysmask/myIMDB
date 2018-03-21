@@ -1,3 +1,16 @@
+{{-- <!doctype html>
+@extends('layouts.app')
+@use App\Movie
+
+
+$movies = Movie::get();
+
+@foreach ($movies as $movie)
+{{$movie->title}}
+
+@endforeach --}}
+
+
 <!doctype html>
 @extends('layouts.app')
 
