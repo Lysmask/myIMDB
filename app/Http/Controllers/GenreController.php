@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Genre;
 use Illuminate\Http\Request;
+use App\Movie;
 
 class GenreController extends Controller
 {
@@ -14,6 +15,8 @@ class GenreController extends Controller
      */
     public function index()
     {
+        $genres = Genre::get();
+        return view ('genre/index', ['genres' => $genres]);
         //
     }
 
@@ -24,6 +27,9 @@ class GenreController extends Controller
      */
     public function create()
     {
+        $genres = Genre::get();
+        return view ('genre/create', ['genres => $genres']);
+
         //
     }
 
@@ -35,6 +41,10 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
+        $genres = new Genre;
+        $genres->Genre = $request->input('Genre');
+        $genres->save();
+return redirect()->route('genre.store');
         //
     }
 
@@ -46,6 +56,7 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
+        return view('Genre/show', ['genre' => $genre]);
         //
     }
 
@@ -69,6 +80,7 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
+
         //
     }
 

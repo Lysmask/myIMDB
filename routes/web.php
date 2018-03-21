@@ -35,3 +35,13 @@ Route::get('/people', 'PersonController@index')->name('people.index');
 Route::get('/people/create', 'PersonController@create');
 Route::post('/people', 'PersonController@store')->name('people.store');
 Route::get('/people/{person}', 'PersonController@show');
+
+//Genre
+Route::get('/genres', 'GenreController@index');
+Route::get('/genres/create', 'GenreController@create');
+Route::post('/genres' , 'GenreController@store')->name('genre.store');
+Route::get('/genres/{genre}', 'GenreController@show')->name('genre.show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
