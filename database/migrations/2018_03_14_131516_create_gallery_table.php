@@ -14,8 +14,10 @@ class CreateGalleryTable extends Migration
     public function up()
     {
         Schema::create('gallery', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('img_url');
+          $table->increments('id');
+          $table->integer('movie_id')->unsigned();
+          $table->string('media_url');
+          $table->foreign('movie_id')->references('id')->on('movies');
         });
     }
 

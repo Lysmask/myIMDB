@@ -15,7 +15,7 @@
 <form class="" action="{{route('people.store')}}" method="post">
   @csrf
   <input type="text" placeholder="First name" name="firstname">
-  <br>
+  <br><br>
   <input type="text" placeholder="Last name" name="lastname">
   <br><br>
   <input type="submit" name="personcreater" value="Create Person">

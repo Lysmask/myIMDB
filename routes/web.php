@@ -24,14 +24,16 @@ Route::get('/users/create', 'UserController@create');
 Route::get('/users/{user}', 'UserController@show');
 
 //Movies
-Route::get('/movies', 'MovieController@index');
+Route::get('/movies', 'MovieController@index')->name('movie.index');
 Route::get('/movies/create', 'MovieController@create');
 Route::post('/movies', 'MovieController@store')->name('movie.store');
-Route::get('/movies/{movie}', 'MovieController@show');
-
+Route::get('/movies/{movie}', 'MovieController@show')->name('movies.show');
 
 //Person
 Route::get('/people', 'PersonController@index')->name('people.index');
 Route::get('/people/create', 'PersonController@create');
 Route::post('/people', 'PersonController@store')->name('people.store');
 Route::get('/people/{person}', 'PersonController@show');
+
+//Rating
+Route::post('movies/{movie}', ['as' => 'movies/{movie}', 'uses' => 'RatingController@store']);

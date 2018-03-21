@@ -17,8 +17,9 @@ class CreateMoviesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longtext('description')->nullable();
+            $table->string('poster_url');
             $table->integer('runtime')->nullable()->unsigned();
-            $table->date('releasedate');
+            $table->year('releaseyear');
             $table->timestamps();
         });
     }

@@ -1,1 +1,2 @@
-{{ $user->name }}
+@extends('layouts.app')
+@section('content')

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -27,7 +28,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                          <li><a class="nav-link" href="{{route('movie.index')}}">Movies</a></li>
+                          {{-- <li><a class="nav-link" href="{{ route('movies') }}">{{ __('/Movies') }}</a></li> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->

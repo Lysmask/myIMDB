@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Person;
+use App\Rating;
 use Illuminate\Http\Request;
 
-class PersonController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-      $people = Person::get();
-        return view ('Person/index', ['people' => $people]);
+        //
     }
 
     /**
@@ -25,9 +24,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-      return view ('Person/create');
-      $person = new Person;
-      $person->name = $request->firstname . " " . $request->lastname;
+        //
     }
 
     /**
@@ -38,23 +35,22 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-          'firstname' => 'required',
-          'lastname' => 'required'
-        ]);
-          $person = new Person;
-          $person->name = $request->input('firstname') . " " . $request->input('lastname');
-          $person->save();
-          return redirect()->route('people.index');
+        @csrf
+        $rating = new Rating;
+        $rating->movie_id = $movie->id;
+        $rating->user_id = $user->id;
+        $rating->rating = $request->input('rating');
+        $rating->save();
+        return redirect()->route('movies/{movie}');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function show(Person $person)
+    public function show(Rating $rating)
     {
         //
     }
@@ -62,10 +58,10 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function edit(Person $person)
+    public function edit(Rating $rating)
     {
         //
     }
@@ -74,10 +70,10 @@ class PersonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Person  $person
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(Request $request, Rating $rating)
     {
         //
     }
@@ -85,10 +81,10 @@ class PersonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Person $person)
+    public function destroy(Rating $rating)
     {
         //
     }
