@@ -38,17 +38,13 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-          // $this->validate($request, [
-          //   'title' => 'required',
-          //   'description' => 'required',
-          //   'linktoposter' => 'required',
-          //   'runtime' => 'required',
-          // ]);
 
             $movie = new Movie;
             $movie->title = $request->input('title');
             $movie->description = $request->input('description');
             $movie->runtime = $request->input('runtime');
+            $movie->poster_url = $request->input('poster_url');
+            $movie->releaseyear = $request->input('releaseyear');
             $movie->save();
             return redirect()->route('movie.index');
 
@@ -62,7 +58,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        return view('movie/show', ['movie'=> $movie]);
     }
 
     /**

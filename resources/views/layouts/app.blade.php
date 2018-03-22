@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -26,10 +27,35 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
+                    @Auth
+                    <ul class="navbar-nav mr-auto">
+                      <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Movies
+                            <span class="caret"></span></button>
+                              <ul class="dropdown-menu">
+                                <li><a href="{{route('movie.index')}}">View All Movies</a></li>
+                                <li><a href="{{route('movie.create')}}">Add New Movie</a></li>
+                              </ul>
+                            </div>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">People
+                                <span class="caret"></span></button>
+                              <ul class="dropdown-menu">
+                                <li><a href="{{route('people.index')}}">View All People</a></li>
+                                <li><a href="{{route('people.create')}}">Add New Person</a></li>
+                              </ul>
+                            </ul>
+                      </div>
+
+
+                    @else
+                      <ul class="navbar-nav mr-auto">
+                          <li><a class="nav-link" href="{{route('movie.index')}}">Movies</a></li>
+                          <li><a class="nav-link" href="{{ route('people.index') }}">People</a></li>
                     </ul>
 
+                    @endauth
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
