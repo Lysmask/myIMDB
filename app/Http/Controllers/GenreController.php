@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Genre;
-use Illuminate\Http\Request;
 use App\Movie;
+use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
@@ -42,9 +42,9 @@ class GenreController extends Controller
     public function store(Request $request)
     {
         $genres = new Genre;
-        $genres->Genre = $request->input('Genre');
+        $genres->type = $request->input('Genre');
         $genres->save();
-return redirect()->route('genre.store');
+          return redirect()->route('genre.index');
         //
     }
 

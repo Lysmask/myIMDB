@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Genre extends Model
 {
-    function movie() {
-      return hasMany('App\Movie');
-    }
+  public $timestamps = false;
 
+  function movies() {
+    return $this->belongsToMany('App\Movie')->withPivot('type');
+}
 
 } // End of class

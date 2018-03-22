@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 @extends('layouts.app');
-@section('content') 
+@section('content')
 <html lang="en" dir="ltr">
   <head>
 
@@ -17,9 +17,9 @@
 <form class="" action="{{route('genre.store')}}" method="post">
 @csrf
 <br>
-<input type="text" placeholder="Genre" name="Genre"> 
+<input type="text" placeholder="Genre" name="Genre">
 <br>
-<input type="" name=""> type="submit" name="Add Genre">
+<input  type="submit" name="Add Genre">
 </form>
 </div>
 

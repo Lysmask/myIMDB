@@ -16,7 +16,7 @@ class CreatePeopleTable extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('img_url');
+            $table->string('poster_url')->nullable();
         });
     }
 

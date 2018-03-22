@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Movie;
-use Illuminate\Http\Request;
 use App\Person;
+use App\Genre;
+use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
@@ -27,7 +28,8 @@ class MovieController extends Controller
     public function create()
     {
         $people = Person::get();
-        return view ('Movie/create', ['people' => $people]);
+        $genres = Genre::get();
+        return view ('Movie/create', ['people' => $people, 'genres' => $genres]);
     }
 
     /**
@@ -46,6 +48,9 @@ class MovieController extends Controller
             $movie->poster_url = $request->input('poster_url');
             $movie->releaseyear = $request->input('releaseyear');
             $movie->save();
+            $movie->genres()->attach($request->input('genres'));
+            $movie->directors()->attach($request->input('directors'), ['role' => 1]);
+            $movie->actors()->attach($request->input('actors'), ['role' => 2]);
             return redirect()->route('movie.index');
 
     }

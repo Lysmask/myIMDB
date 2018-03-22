@@ -7,6 +7,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+  function movies() {
+    return $this->hasMany('App\Movie')->withPivot('ratings');
+  }
+
     use Notifiable;
 
     /**

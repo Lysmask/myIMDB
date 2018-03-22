@@ -18,7 +18,7 @@
   <br><br>
   <input type="text" placeholder="Last name" name="lastname">
   <br><br>
-  <input type="text" placeholder="img_url" name="Img">
+  <input type="text" placeholder="Url to Image" name="Img">
   <br><br>
   <input type="submit" name="personcreater" value="Create Person">
 </form>

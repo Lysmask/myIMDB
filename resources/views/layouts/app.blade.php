@@ -34,19 +34,27 @@
                           <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Movies
                             <span class="caret"></span></button>
                               <ul class="dropdown-menu">
-                                <li><a href="{{route('movie.index')}}">View All Movies</a></li>
-                                <li><a href="{{route('movie.create')}}">Add New Movie</a></li>
+                                <li class="list-group-item"><a href="{{route('movie.index')}}">View All Movies</a></li>
+                                <li class="list-group-item"><a href="{{route('movie.create')}}">Add New Movie</a></li>
                               </ul>
                             </div>
                             <div class="dropdown">
                               <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">People
                                 <span class="caret"></span></button>
                               <ul class="dropdown-menu">
-                                <li><a href="{{route('people.index')}}">View All People</a></li>
-                                <li><a href="{{route('people.create')}}">Add New Person</a></li>
+                                <li class="list-group-item"><a href="{{route('people.index')}}">View All People</a></li>
+                                <li class="list-group-item"><a href="{{route('people.create')}}">Add New Person</a></li>
                               </ul>
-                            </ul>
-                      </div>
+                            </div>
+                                <div class="dropdown">
+                                  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Genre
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                      <li class="list-group-item"><a href="{{route('genre.index')}}">Genres Listed</a></li>
+                                      <li class="list-group-item"><a href="{{route('genre.create')}}">Add New Genre</a></li>
+                                    </ul>
+                                  </div>
+                                </ul>
 
 
                     @else
@@ -93,5 +101,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="bootstrap-rating-input.min.js"></script>
+    
 </body>
 </html>

@@ -33,14 +33,14 @@ Route::get('/movies/{movie}', 'MovieController@show')->name('movies.show');
 Route::get('/people', 'PersonController@index')->name('people.index');
 Route::get('/people/create', 'PersonController@create')->name('people.create');
 Route::post('/people', 'PersonController@store')->name('people.store');
-Route::get('/people/{person}', 'PersonController@show');
+Route::get('/people/{person}', 'PersonController@show')->name('genre.show');
 
 //Genre
-Route::get('/genres', 'GenreController@index');
-Route::get('/genres/create', 'GenreController@create');
+Route::get('/genres', 'GenreController@index')->name('genre.index');
+Route::get('/genres/create', 'GenreController@create')->name('genre.create');
 Route::post('/genres' , 'GenreController@store')->name('genre.store');
 Route::get('/genres/{genre}', 'GenreController@show')->name('genre.show');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Rating
+// Route::get('/users/{user}/movies', 'RatingController@index')->name('rating.index');
+// Route::Post('/movies/{movie}', 'RatingController@Store')->name('rating.store');
