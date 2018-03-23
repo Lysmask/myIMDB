@@ -74,7 +74,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        return view ('movie.edit', ['movie' => $movie, 'genres' => Genre::get(), 'people' => Person::get()]);
     }
 
     /**
@@ -86,7 +86,17 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
-        //
+
+      $movie->title = $request->input('title');
+      $movie->description = $request->input('description');
+      $movie->runtime = $request->input('runtime');
+      $movie->poster_url = $request->input('poster_url');
+      $movie->releaseyear = $request->input('releaseyear');
+      $movie->save();
+      $movie->genres()->attach($request->input('genres'));
+      $movie->directors()->attach($request->input('directors'), ['role' => 1]);
+      $movie->actors()->attach($request->input('actors'), ['role' => 2]);
+      return redirect()->route('movie.index');
     }
 
     /**

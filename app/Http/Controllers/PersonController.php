@@ -27,7 +27,7 @@ class PersonController extends Controller
     {
       return view ('Person/create');
       $person = new Person;
-      $person->name = $request->firstname . " " . $request->lastname;
+      $person->name = $request->name;
     }
 
     /**
@@ -38,12 +38,10 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-          'firstname' => 'required',
-          'lastname' => 'required'
-        ]);
+
           $person = new Person;
-          $person->name = $request->input('firstname') . " " . $request->input('lastname');
+          $person->name = $request->input('name');
+          $person->poster_url = $request->input('poster_url');
           $person->save();
           return redirect()->route('people.index');
     }
@@ -56,7 +54,7 @@ class PersonController extends Controller
      */
     public function show(Person $person)
     {
-        //
+        return view('person/show', ['person'=> $person]);
     }
 
     /**
@@ -67,7 +65,7 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
-        //
+        return view ('person.edit', ['person' => $person]);
     }
 
     /**
@@ -79,7 +77,10 @@ class PersonController extends Controller
      */
     public function update(Request $request, Person $person)
     {
-        //
+      $person->name = $request->input('name');
+      $person->poster_url = $request->input('poster_url');
+      $person->save();
+      return redirect()->route('people.index');
     }
 
     /**

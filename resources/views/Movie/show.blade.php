@@ -3,20 +3,24 @@
 
 
 <div class="container">
+
+  @auth
+  <a href="{{route('movie.edit', ['movie' => $movie->id])}}"><button>Edit</button></a>
+@endauth
 <h1>{{$movie->title}}</h1>
 <br>
 <img src="{{$movie->poster_url}}">
+<br>
+<h3> ReleaseYear: </h3>
+@if ($movie->releaseyear > 2018)
+  <h4> Movie not released </h4>
+@else
+<h3> {{$movie->releaseyear}} </h3>
+@endif
 
 <h2>
 Directors:
 </h2>
-
-{{-- @foreach ($movie->directors() as $director) --}}
-{{-- @if ($person->role === 1) --}}
-{{-- <li> {{$director->name}} </li> --}}
-{{-- @continue --}}
-{{-- @endif --}}
-{{-- @endforeach--}}
 
 <h2>
 Actors:

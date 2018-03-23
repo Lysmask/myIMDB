@@ -14,9 +14,7 @@
 
 <form class="" action="{{route('people.store')}}" method="post">
   @csrf
-  <input type="text" placeholder="First name" name="firstname">
-  <br><br>
-  <input type="text" placeholder="Last name" name="lastname">
+  <input type="text" placeholder="Name" name="name">
   <br><br>
   <input type="text" placeholder="Url to Image" name="Img">
   <br><br>
